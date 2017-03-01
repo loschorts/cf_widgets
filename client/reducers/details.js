@@ -1,10 +1,10 @@
 import {FETCH_USER_DETAILS, RECEIVE_USER_DETAILS} from '../constants'
 
-const settings = (state = {details: {}}, action) => {
+const settings = (state = {}, action) => {
 	const newState = Object.assign({}, state);
 	switch (action.type) {
 		case RECEIVE_USER_DETAILS:
-			newState.details = action.details;
+			Object.assign(newState, action.details);
 			break;
 		case FETCH_USER_DETAILS:
 			return state;

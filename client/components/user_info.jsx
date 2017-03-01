@@ -6,13 +6,15 @@ class UserInfo extends React.Component {
 	render(){
 		const {details} = this.props;
 		return (
-			<div>
-				<h1>User Info</h1>
-			{
-				Object.keys(details).map((k, i) => {
-					return <p key={`ui-${i}`}>{k}: {details[k] || "nil"}</p>
-				})
-			}
+			<div id="user-info">
+				<p>Account Settings</p>
+				<ul id="details">
+					{
+						Object.keys(details).map((k, i) => {
+							return <li key={`ui-${i}`}><strong>{k}</strong>: {details[k] || "nil"}</li>
+						})
+					}
+				</ul>
 			</div>
 		);
 	}
