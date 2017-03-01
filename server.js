@@ -20,6 +20,7 @@ app.get('/api/*', (req, res) => {
 	
 	const path = "https://api.cloudflare.com/v4/" + req.path.slice(5);
 	console.log("requesting " + path);
+	console.log(req.headers)
 	const options = {
 	  url: path,
 	  headers: {
@@ -34,10 +35,11 @@ app.get('/api/*', (req, res) => {
 	  	console.log("request suceeded")
 	    res.send(body);
 	  } else {
-	  	console.console.log("something went wrong with the request", error)
+	  	console.log("something went wrong with the request", error)
 	  	res.send(error);
 	  }
 	}
+	
 	request(options, callback);
 
 })
@@ -47,4 +49,5 @@ app.listen(port, (err) => {
     return console.log('something bad happened', err)
   }
   console.log(`server is listening on ${port}`)
+  console.log(`don't run me on the internet i pass your cloudflare auth key around like candy`)
 })

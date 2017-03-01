@@ -1,12 +1,11 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import {getUserDetails} from './util/api';
+import App from './components/app';
 
-window.getUserDetails = getUserDetails;
 document.addEventListener("DOMContentLoaded", ()=> {
 	render(
-		<h1>React skeleton</h1>,
+		<App/>,
 		document.querySelector("#root")
 	);
 });

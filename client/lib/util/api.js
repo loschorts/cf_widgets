@@ -1,7 +1,6 @@
 // keys imported from the .gitignored ./keys.js file
-import { XAuthEmail, XAuthKey } from '../../secret_key.js'
 
-const headers = (xAuthEmail, xAuthKey) => {
+const headers = (xAuthEmail = "", xAuthKey = "") => {
 	const h = new Headers();
 	h.append("Content-Type", "application/json")
 	h.append("X-Auth-Email", xAuthEmail)
@@ -10,12 +9,12 @@ const headers = (xAuthEmail, xAuthKey) => {
 	return h;
 };
 
-export const getUserDetails = () => {
+export const getUserDetails = (xAuthEmail, xAuthKey) => {
 	return fetch(
 		"api/user",
 		{
 			method: "GET",
-			headers: headers(XAuthEmail, XAuthKey),
+			headers: headers(xAuthEmail, xAuthKey),
 		}
-	)
+	).then(r => r.json())
 };
