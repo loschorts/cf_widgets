@@ -1,5 +1,5 @@
 // keys imported from the .gitignored ./keys.js file
-import { XAuthEmail, XAuthKey } from '../../keys.js'
+import { XAuthEmail, XAuthKey } from '../../secret_key.js'
 
 const headers = (xAuthEmail, xAuthKey) => {
 	const h = new Headers();
