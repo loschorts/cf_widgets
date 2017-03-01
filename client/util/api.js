@@ -1,6 +1,3 @@
-export const getUserDetails = () => {
-	return fetch("api/user").then(r => r.json());
-};
+const $ = require("jquery");
 
-
-const errCb = err => console.log('request failed', err);
+export const getUserDetails = () => $.get("api/user").then(r => r, e => e);

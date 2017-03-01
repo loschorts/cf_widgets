@@ -2,8 +2,6 @@ import React from 'react';
 import UserInfo from './user_info';
 import * as API from '../util/api';
 
-window.API = API;
-
 class App extends React.Component {
 	constructor(){
 		super()
@@ -12,8 +10,10 @@ class App extends React.Component {
 		}
 	}
 	componentDidMount(){
-		API.getUserDetails().then(res => {
-			this.setState({userInfo: res.result})
+		API.getUserDetails().then(r => {
+			this.setState({userInfo: r.result})
+		}).catch(e => {
+			console.log(e)
 		})
 	}
 	render(){

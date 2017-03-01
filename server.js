@@ -1,6 +1,9 @@
+if (!process.env.xAuthEmail || !process.env.xAuthKey) {
+	throw new Error("secrets undefined; make sure to run `./run.sh` instead of `node server` directly")
+}
+
 const express = require('express');
 const request = require('request');
-const secrets = require('./secrets');
 
 const app = express();
 const port = 3000;
@@ -18,27 +21,24 @@ app.get('/', (req, res)=>{
 });
 
 app.get('/api/*', (req, res) => {
-	
+
 	const path = "https://api.cloudflare.com/v4/" + req.path.slice(5);
 	console.log("requesting " + path + " from cloudflare");
-	console.log(req.headers)
+	
 	const options = {
 	  url: path,
 	  headers: {
 	    'Content-Type': 'application/json',
-	    'X-Auth-Email': secrets.myEmail,
-	    'X-Auth-Key': secrets.myKey,
+	    'X-Auth-Email': process.env.xAuthEmail,
+	    'X-Auth-Key': process.env.xAuthKey,
 	  }
 	};
 
 	function callback(error, response, body) {
-	  if (!error && response.statusCode == 200) {
-	  	console.log("SUCCESS: cf api request suceeded")
-	    res.send(body);
-	  } else {
-	  	console.log("ERROR: something went wrong with the cf api request", error)
-	  	res.send({error});
-	  }
+		console.log(`Cloudflare API responded with ${response.statusCode}`)
+	  res.setHeader('Content-Type', 'application/json');
+		res.statusCode = response.statusCode;
+	  res.send(body);
 	}
 	
 	request(options, callback);
@@ -50,5 +50,4 @@ app.listen(port, (err) => {
     return console.log('something bad happened', err)
   }
   console.log(`server is listening on ${port}`)
-  console.log(`don't run me on the internet i pass your cloudflare auth key around like candy`)
 });

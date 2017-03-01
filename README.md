@@ -1,3 +1,5 @@
 # cf_widgets
 
-create a `client/secret_key.js` that exports `myEmail` and `myKey` to set default vals.
+`./config_auth.sh`: writes your credentials to a .gitignored secrets.js file
+`node server.js`
+`localhost:3000`
