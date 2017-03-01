@@ -1,17 +1,15 @@
 import React from 'react';
 import {render} from 'react-dom';
-
 import { Provider } from 'react-redux';
-
 import configureStore from './store';
-
 import App from './components/app';
 
 document.addEventListener("DOMContentLoaded", ()=> {
-	// const store = configureStore();
-	const store = {};
+	const store = configureStore();
 	render(
-		<App store={store}/>,
+		<Provider store={store}>
+			<App/>
+		</Provider>,
 		document.querySelector("#root")
 	);
 });

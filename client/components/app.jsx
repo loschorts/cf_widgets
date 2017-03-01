@@ -1,29 +1,23 @@
 import React from 'react';
 import UserInfo from './user_info';
 import * as API from '../util/api';
+import {connect} from 'react-redux';
+import {fetchUserDetails} from '../actions/settings';
 
 class App extends React.Component {
-	constructor(){
-		super()
-		this.state = {
-			userInfo: {}
-		}
-	}
 	componentDidMount(){
-		API.getUserDetails().then(r => {
-			this.setState({userInfo: r.result})
-		}).catch(e => {
-			console.log(e)
-		})
+		this.props.fetchUserDetails();
 	}
 	render(){
-		const {userInfo} = this.state;
+		const {details} = this.props.settings;
 		return(
 			<div id="app">
-				<UserInfo userInfo={userInfo}/>
+				<UserInfo details={details}/>
 			</div>
 		);
 	}
 }
 
-export default App;
+const mapState = ({settings}) => ({ settings })
+const mapDispatch = { fetchUserDetails };
+export default connect(mapState, mapDispatch)(App);
