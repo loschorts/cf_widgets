@@ -12,7 +12,7 @@ const headers = (xAuthEmail, xAuthKey) => {
 
 export const getUserDetails = () => {
 	return fetch(
-		"https://api.cloudflare.com/client/v4/user",
+		"api/user",
 		{
 			method: "GET",
 			headers: headers(XAuthEmail, XAuthKey),

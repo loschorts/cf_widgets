@@ -3,3 +3,5 @@ dist
 
 keys.js
 bundle.*
+
+*secret*
