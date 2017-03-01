@@ -8,8 +8,8 @@ import configureStore from './store';
 import App from './components/app';
 
 document.addEventListener("DOMContentLoaded", ()=> {
-	const store = configureStore();
-
+	// const store = configureStore();
+	const store = {};
 	render(
 		<App store={store}/>,
 		document.querySelector("#root")

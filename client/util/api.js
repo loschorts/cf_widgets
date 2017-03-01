@@ -1,5 +1,5 @@
 export const getUserDetails = () => {
-	return fetch("api/user").then(r => r.json()).catch(errCb);
+	return fetch("api/user").then(r => r.json());
 };
 
 

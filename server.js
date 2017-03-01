@@ -1,6 +1,6 @@
 const express = require('express');
 const request = require('request');
-const secrets = require('secrets');
+const secrets = require('./secrets');
 
 const app = express();
 const port = 3000;
@@ -33,11 +33,11 @@ app.get('/api/*', (req, res) => {
 
 	function callback(error, response, body) {
 	  if (!error && response.statusCode == 200) {
-	  	console.log("cf api request suceeded")
+	  	console.log("SUCCESS: cf api request suceeded")
 	    res.send(body);
 	  } else {
-	  	console.log("something went wrong with the cf api request", error)
-	  	res.send(error);
+	  	console.log("ERROR: something went wrong with the cf api request", error)
+	  	res.send({error});
 	  }
 	}
 	

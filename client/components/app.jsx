@@ -2,6 +2,8 @@ import React from 'react';
 import UserInfo from './user_info';
 import * as API from '../util/api';
 
+window.API = API;
+
 class App extends React.Component {
 	constructor(){
 		super()
