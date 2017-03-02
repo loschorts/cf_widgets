@@ -4,10 +4,11 @@ import logger from 'redux-logger';
 
 import { combineReducers } from 'redux';
 import details from './reducers/details';
+import zones from './reducers/zones';
 
 const configureStore = (preloadedState = {}) => {
 	return createStore(
-		combineReducers({details}),
+		combineReducers({details, zones}),
     preloadedState,
     applyMiddleware(thunk, logger())
   );

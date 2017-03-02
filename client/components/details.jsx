@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-class UserInfo extends React.Component {
+class Details extends React.Component {
 
 	render(){
 		const {details} = this.props;
@@ -20,5 +20,6 @@ class UserInfo extends React.Component {
 	}
 }
 
+const mapState = ({details}) => ({details});
 
-export default UserInfo;
+export default connect(mapState)(Details);

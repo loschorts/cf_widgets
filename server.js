@@ -35,9 +35,14 @@ app.get('/api/*', (req, res) => {
 	};
 
 	function callback(error, response, body) {
-		console.log(`Cloudflare API responded with ${response.statusCode}`)
+		if (response) {
+			res.statusCode = response.statusCode;
+			console.log(`Cloudflare API responded with ${response.statusCode}`)
+		} else {
+			res.statusCode = 404;
+			console.log("Could not connect to Cloudflare API");
+		}
 	  res.setHeader('Content-Type', 'application/json');
-		res.statusCode = response.statusCode;
 	  res.send(body);
 	}
 	

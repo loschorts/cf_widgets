@@ -22,7 +22,7 @@ export const receiveUserDetails = ({result}) => {
 }
 
 export const receiveErrors = errors => {
-	debugger
+	console.log(errors)
 	return {
 		type: RECEIVE_ERRORS,
 		errors
