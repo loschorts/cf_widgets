@@ -1,9 +1,19 @@
-import { SET_ZONE_SSL } from '../constants';
+import * as C from '../constants';
 
 const zoneSettings = (state = { byZoneId: {} }, action) => {
 	const newState = Object.assign({}, state);
 	switch (action.type) {
-		case SET_ZONE_SSL: 
+		case C.RECEIVE_ZONE_SETTINGS: {
+
+			if (!newState.byZoneId[action.id]) newState.byZoneId[action.id] = {};
+
+			action.settings.forEach(setting => {
+				newState.byZoneId[action.id][setting.id] = setting;
+			})
+			
+			return newState;
+		}
+		case C.SET_ZONE_SSL: 
 			if (!newState[action.id]) newState[action.id] = defaultSettings();
 			Object.assign(newState[action.id].ssl, action.settings);
 			return newState;
@@ -60,6 +70,5 @@ const defaultSettings = () => ({
 	// webp: nullSetting(),
 	// websockets: nullSetting(),
 });
-
 
 export default zoneSettings;

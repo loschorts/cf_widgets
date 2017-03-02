@@ -1,32 +1,24 @@
 import React from 'react';
-import {Link} from 'react-router';
-
-import SSLSelect from './ssl_select';
+import {connect} from 'react-redux';
+import SSLCard from './ssl_card';
 
 class Crypto extends React.Component {
 	render(){
+		const {zones, zoneSettings, activeId} = this.props;
+		const current = zoneSettings.byZoneId[activeId]
+		if (!current) return <div/>
 		return (
 			<div id="crypto">
-				<div className="card">
-					<section className="card-section">
-						<h3 className="card-title">SSL</h3>
-						<p>Encrypt communication to and from your website using SSL.</p>
-						<p className="quiet">This setting was last changed 9 hours ago.</p>
-					</section>
-					<section className="card-section">
-						<div id="ssl-select-tool">
-							<SSLSelect/>
-							<span className="label success">ACTIVE CERTIFICATE</span>
-						</div>
-					</section>
-					<section className="card-section">
-						<Link>API ▶</Link>
-						<Link>Help ▶</Link>
-					</section>
-				</div>
+				<SSLCard setting={current.ssl}/>
 			</div>
-		);
+		);	
 	}
 }
 
-export default Crypto;
+const mapState = ({ zones, zoneSettings: {present} }) => ({
+	zones,
+	zoneSettings: present,
+	activeId: zones.activeId
+})
+
+export default connect(mapState)(Crypto);

@@ -5,11 +5,11 @@ const zones = (state = { byId: {}, activeId: null }, action) => {
 
 	switch (action.type) {
 		case RECEIVE_ZONES:
-			action.zones.forEach(zone => {
+			action.zones.forEach( zone => {
 				newState.byId[zone.id] = zone;
 			})
 			if (!newState.activeId) {
-				newState.activeId = zones[0].id
+				newState.activeId = action.zones[0].id
 			}
 			return newState;
 			break;

@@ -5,7 +5,7 @@ class SSLSelect extends React.Component {
 	constructor(){
 		super()
 		this.state = {
-			value: "Flexible"
+			value: undefined
 		}
 		this.setState = this.setState.bind(this);
 	}
@@ -17,7 +17,7 @@ class SSLSelect extends React.Component {
 			<Select
 				clearable={false}
 				name="ssl"
-				value={this.state.value}
+				value={this.props.value}
 				options={options}
 				onChange={this.setValue.bind(this)}/>
 		);

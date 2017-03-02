@@ -32,7 +32,7 @@ class App extends React.Component {
 		const header = this.header();
 		return(
 			<div id="app">
-				<Header email={details.email} zone={zones[0]}/>
+				<Header email={details.email} zone={zones.byId[zones.activeId]}/>
 				<NavBar/>
 				<main>
 					<section id="title">
@@ -46,6 +46,6 @@ class App extends React.Component {
 	}
 }
 
-const mapState = ({details, zones}) => ({details, zones})
+const mapState = ({ details, zones }) => ({details, zones})
 const mapDispatch = { fetchUserDetails, fetchZones };
 export default connect(mapState, mapDispatch)(App);
