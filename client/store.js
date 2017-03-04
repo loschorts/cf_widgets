@@ -10,7 +10,7 @@ import undoable from 'redux-undo';
 
 const configureStore = (preloadedState = {}) => {
 	return createStore(
-		combineReducers({details, zones, zoneSettings: undoable(zoneSettings)}),
+		combineReducers({ details, zones, zoneSettings }),
     preloadedState,
     applyMiddleware(thunk, logger())
   );

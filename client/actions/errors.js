@@ -1,7 +1,9 @@
+import * as C from '../constants';
+
 export const receiveErrors = errors => {
 	console.log(errors)
 	return {
-		type: RECEIVE_ERRORS,
+		type: C.RECEIVE_ERRORS,
 		errors
 	}
 }

@@ -1,4 +1,5 @@
 import * as C from '../constants';
+import undoable, { distinctState } from 'redux-undo';
 
 const zoneSettings = (state = { byZoneId: {} }, action) => {
 	const newState = Object.assign({}, state);
@@ -14,8 +15,8 @@ const zoneSettings = (state = { byZoneId: {} }, action) => {
 			return newState;
 		}
 		case C.SET_ZONE_SSL: 
-			if (!newState[action.id]) newState[action.id] = defaultSettings();
-			Object.assign(newState[action.id].ssl, action.settings);
+			if (!newState.byZoneId[action.id]) newState.byZoneId[action.id] = defaultSettings();
+			Object.assign(newState.byZoneId[action.id].ssl, action.settings);
 			return newState;
 		default:
 			return state;
@@ -71,4 +72,6 @@ const defaultSettings = () => ({
 	// websockets: nullSetting(),
 });
 
-export default zoneSettings;
+export default undoable(zoneSettings, {
+  filter: distinctState()
+});

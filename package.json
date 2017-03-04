@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "`./config_auth.sh`: writes your credentials to a .gitignored secrets.js file `node server.js` `localhost:3000`",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,8 +11,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.0",
     "express": "^4.14.1",
     "react-select": "^1.0.0-rc.3",
     "request": "^2.79.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loschorts/cf_widgets.git"
+  },
+  "bugs": {
+    "url": "https://github.com/loschorts/cf_widgets/issues"
+  },
+  "homepage": "https://github.com/loschorts/cf_widgets#readme"
 }

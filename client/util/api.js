@@ -12,10 +12,11 @@ export const fetchZoneSettings = id => {
 	return $.get(`api/zones/${id}/settings`)
 }
 
-export const patchZoneSSL = ({id, value}) => {
+export const patchZoneSSL = (id, value) => {
 	return $.ajax({
+		contentType: "application/json",
 		url: `api/zones/${id}/settings/ssl`,
 		method: "PATCH",
-		data: { value }
+		data: JSON.stringify({ value })
 	})
 }

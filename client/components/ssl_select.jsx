@@ -1,5 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
+import {patchZoneSSL} from '../actions/zone_settings';
+import { connect } from 'react-redux';
 
 class SSLSelect extends React.Component {
 	constructor(){
@@ -7,10 +9,10 @@ class SSLSelect extends React.Component {
 		this.state = {
 			value: undefined
 		}
-		this.setState = this.setState.bind(this);
+		this.setValue = this.setValue.bind(this);
 	}
 	setValue({ value }){
-		this.setState({value})
+		this.props.patchZoneSSL(this.props.activeId, value)
 	}
 	render() {
 		return (
@@ -19,16 +21,17 @@ class SSLSelect extends React.Component {
 				name="ssl"
 				value={this.props.value}
 				options={options}
-				onChange={this.setValue.bind(this)}/>
+				onChange={this.setValue}/>
 		);
 	}
 }
 
 const options = [
-	{value: "Off", label: "Off"},
-	{value: "Flexible", label: "Flexible"},
-	{value: "Full", label: "Full"},
-	{value: "Full (strict)", label: "Full (strict)"},
+	{value: "off", label: "Off"},
+	{value: "flexible", label: "Flexible"},
+	{value: "full", label: "Full"},
+	{value: "full (strict)", label: "Full (strict)"},
 ]
-
-export default SSLSelect;
+const mapState = ({zones: {activeId}}) => ({activeId});
+const mapDispatch = { patchZoneSSL }
+export default connect(mapState, mapDispatch)(SSLSelect);

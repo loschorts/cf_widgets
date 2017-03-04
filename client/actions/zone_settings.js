@@ -1,5 +1,5 @@
-import receiveErrors from './errors';
-import { ActionCreators as UndoActionCreators } from 'redux-undo';
+import {receiveErrors} from './errors';
+import { ActionCreators } from 'redux-undo';
 import * as API from '../util/api';
 import * as C from '../constants';
 
@@ -25,10 +25,11 @@ export const setZoneSSL = ({id, value, modified_on, editable}) => ({
 
 export const patchZoneSSL = (id, value) => dispatch => {
 	dispatch(setZoneSSL({id, value}))
-	API.patchZoneSSL.then(
+
+	API.patchZoneSSL(id, value).then(
 		r => dispatch(setZoneSSL(r.result)),
 		e => {
-			dispatch(UndoActionCreators.undo())
+			dispatch(ActionCreators.undo())
 			dispatch(receiveErrors(e))
 		}
 	)

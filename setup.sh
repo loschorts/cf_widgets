@@ -12,5 +12,3 @@ echo
 
 export xAuthEmail=$email
 export xAuthKey=$key
-
-node server.js
