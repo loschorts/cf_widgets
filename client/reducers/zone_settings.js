@@ -1,9 +1,7 @@
 import * as C from '../constants';
 import undoable, { distinctState } from 'redux-undo';
-import deepFreeze from 'deep-freeze';
 
 const zoneSettings = (state = { byZoneId: {} }, action) => {
-	deepFreeze(state);
 	const newState = JSON.parse(JSON.stringify(state));
 	
 	switch (action.type) {

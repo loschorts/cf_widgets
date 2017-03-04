@@ -1,7 +1,7 @@
 import {RECEIVE_ZONES, SET_ZONE_SSL} from '../constants';
 
 const zones = (state = { byId: {}, activeId: null }, action) => {
-	let newState = Object.assign({}, state);
+	const newState = JSON.parse(JSON.stringify(state));
 
 	switch (action.type) {
 		case RECEIVE_ZONES:

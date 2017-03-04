@@ -1,30 +1,22 @@
 import * as API from '../util/api';
-import { FETCH_USER_DETAILS, RECEIVE_USER_DETAILS, RECEIVE_ERRORS } from '../constants';
-
+import * as C from '../constants';
+import {receiveNetworkError} from './errors'
 export const fetchUserDetails = () => dispatch => {
-	dispatch({type: FETCH_USER_DETAILS});
+	dispatch({type: C.FETCH_USER_DETAILS});
 
 	API.fetchUserDetails().then( 
 		r => {
 			dispatch(receiveUserDetails(r))
 		},
 		e => {
-			dispatch(receiveErrors(e))
+			dispatch(receiveNetworkError(e))
 		}
 	)
 }
 
 export const receiveUserDetails = ({result}) => {
 	return {
-		type: RECEIVE_USER_DETAILS,
+		type: C.RECEIVE_USER_DETAILS,
 		details: result
 	};
-}
-
-export const receiveErrors = errors => {
-	console.log(errors)
-	return {
-		type: RECEIVE_ERRORS,
-		errors
-	}
 }

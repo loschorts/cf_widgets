@@ -1,4 +1,4 @@
-import {receiveErrors} from './errors';
+import {receiveNetworkError} from './errors';
 import { ActionCreators } from 'redux-undo';
 import * as API from '../util/api';
 import * as C from '../constants';
@@ -6,7 +6,7 @@ import * as C from '../constants';
 export const fetchZoneSettings = id => dispatch => {
 	API.fetchZoneSettings(id).then(
 		r => dispatch(receiveZoneSettings(id, r.result)),
-		e => dispatch(receiveErrors(e))
+		e => dispatch(receiveNetworkError(e))
 	)
 }
 
@@ -30,7 +30,7 @@ export const patchZoneSSL = (id, value) => dispatch => {
 		r => dispatch(setZoneSSL(id, r.result)),
 		e => {
 			dispatch(ActionCreators.undo())
-			dispatch(receiveErrors(e))
+			dispatch(receiveNetworkError(e))
 		}
 	)
 }
