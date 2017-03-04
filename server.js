@@ -1,5 +1,7 @@
+// server that wraps api requests from client to avoid cross-origin problems
+
 if (!process.env.xAuthEmail || !process.env.xAuthKey) {
-	throw new Error("secrets undefined; make sure to run `./run.sh` instead of `node server` directly")
+	throw new Error("secrets undefined -- have you run `./start.sh` ?")
 }
 
 const express = require('express');
@@ -88,5 +90,5 @@ app.listen(port, (err) => {
   if (err) {
     return console.log('something bad happened', err)
   }
-  console.log(`server is listening on ${port}`)
+  console.log(`server is listening on port ${port}`)
 });
