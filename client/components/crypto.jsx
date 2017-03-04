@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import SSLCard from './ssl_card';
 import OriginPullsCard from './origin_pulls_card';
+import OpportunisticEncryptionCard from './opportunistic_encryption';
 
 class Crypto extends React.Component {
 	render(){
@@ -12,6 +13,7 @@ class Crypto extends React.Component {
 			<div id="crypto">
 				<SSLCard setting={current.ssl}/>
 				<OriginPullsCard setting={current.tls_client_auth}/>
+				<OpportunisticEncryptionCard setting={current.opportunistic_encryption}/>
 			</div>
 		);	
 	}

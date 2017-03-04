@@ -12,7 +12,7 @@ const swap = setting => {
 	return setting;
 }
 
-const OriginPullsCard = ({ setting, zoneId, patchZoneSetting }) => {
+const OpportunisticEncryptionCard = ({ setting, zoneId, patchZoneSetting }) => {
 	const tool = (
 		<div id="ssl-select-tool">
 			<Switch
@@ -24,10 +24,10 @@ const OriginPullsCard = ({ setting, zoneId, patchZoneSetting }) => {
 
 	return (
 		<Card
-			title="Authenticated Origin Pulls"
-			body="TLS client certificate presented for authentication on origin pull."
+			title="Opportunistic Encryption"
+			body={`Opportunistic Encryption allows browsers to benefit from the improved performance of HTTP/2 and SPDY by letting them know that your site is available over an encrypted connection. Browsers will continue to show "http" in the address bar, not "https".`}
+			showTimestamp={false}
 			modifiedOn={setting.modified_on}
-			showTimestamp={true}
 			tool={tool}
 		/> 
 	);
@@ -40,4 +40,4 @@ const mapState = ({zones: {activeId}}) => ({
 
 const mapDispatch = { patchZoneSetting }
 
-export default connect(mapState, mapDispatch)(OriginPullsCard);
+export default connect(mapState, mapDispatch)(OpportunisticEncryptionCard);
