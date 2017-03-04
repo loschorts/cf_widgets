@@ -14,9 +14,8 @@ const zoneSettings = (state = { byZoneId: {} }, action) => {
 			return newState;
 		}
 
-		case C.SET_ZONE_SSL: 
-
-			Object.assign(newState.byZoneId[action.id].ssl, action.settings)
+		case C.SET_ZONE_SETTING: 
+			Object.assign(newState.byZoneId[action.id][action.settingId], action.settings)
 			return newState;
 
 		default:

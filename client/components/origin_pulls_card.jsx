@@ -1,26 +1,28 @@
 import React from 'react';
-import {timeDiff} from '../util/date';
-import SSLSelect from './ssl_select';
 
 import {Link} from 'react-router';
 import Card from './card'
+import Switch from './switch'
 
-const SSLCard = ({ setting }) => {
+const OriginPullsCard = ({ setting }) => {
 	const tool = (
 		<div id="ssl-select-tool">
-			<SSLSelect value={setting.value}/>
+			<Switch
+				value={setting.value}
+				onChange={()=>{}}
+			/>
 			<span className="label success">ACTIVE CERTIFICATE</span>
 		</div>
 	);
 
 	return (
 		<Card
-			title="SSL"
-			body="Encrypt communication to and from your website using SSL."
+			title="Authenticated Origin Pulls"
+			body="TLS client certificate presented for authentication on origin pull."
 			modified={setting.modified_on}
 			tool={tool}
 		/> 
 	);
 }
 
-export default SSLCard;
+export default OriginPullsCard;
