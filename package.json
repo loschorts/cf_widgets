@@ -13,8 +13,6 @@
   "dependencies": {
     "body-parser": "^1.17.0",
     "express": "^4.14.1",
-    "react-select": "^1.0.0-rc.3",
-    "react-toggle": "^3.0.1",
     "request": "^2.79.0"
   },
   "devDependencies": {},

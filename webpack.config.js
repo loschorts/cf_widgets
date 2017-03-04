@@ -1,5 +1,5 @@
 module.exports = {
-  context: __dirname + "/",
+  context: __dirname + "/client",
   entry: "./entry.jsx",
   output: {
       path: __dirname + "/../public",

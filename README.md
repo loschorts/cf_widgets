@@ -1,5 +1,7 @@
 # cf_widgets
 
-`./config_auth.sh`: writes your credentials to a .gitignored secrets.js file
+TO RUN: 
+`./config_auth.sh`
+`webpack`
 `node server.js`
 `localhost:3000`
