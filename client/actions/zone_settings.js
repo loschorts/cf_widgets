@@ -16,18 +16,18 @@ export const receiveZoneSettings = (id, settings) => ({
 	settings
 })
 
-export const setZoneSSL = ({id, value, modified_on, editable}) => ({
+export const setZoneSSL = (id, {value, modified_on, editable}) => ({
 	type: C.SET_ZONE_SSL,
-	id,
+	id, 
 	// drop undefined keys so they don't override the state in the reducer
 	settings: JSON.parse(JSON.stringify({value, modified_on, editable})),
 })
 
 export const patchZoneSSL = (id, value) => dispatch => {
-	dispatch(setZoneSSL({id, value}))
+	dispatch(setZoneSSL(id, { value }))
 
 	API.patchZoneSSL(id, value).then(
-		r => dispatch(setZoneSSL(r.result)),
+		r => dispatch(setZoneSSL(id, r.result)),
 		e => {
 			dispatch(ActionCreators.undo())
 			dispatch(receiveErrors(e))

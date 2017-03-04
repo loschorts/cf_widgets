@@ -5,6 +5,7 @@ import SSLSelect from './ssl_select';
 import {Link} from 'react-router';
 
 const SSLCard = ({ setting }) => {
+	console.log(setting.modified_on)
 	return (
 		<div className="card">
 			<section className="card-section">

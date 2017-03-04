@@ -22,6 +22,6 @@ export const timeDiff = (a,b) => {
 		}
 	}
 
-	if (!result) result = "a few seconds";
+	if (!result) result = "a few seconds ago";
 	return result;
 }

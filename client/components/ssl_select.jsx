@@ -30,7 +30,7 @@ const options = [
 	{value: "off", label: "Off"},
 	{value: "flexible", label: "Flexible"},
 	{value: "full", label: "Full"},
-	{value: "full (strict)", label: "Full (strict)"},
+	{value: "strict", label: "Full (strict)"},
 ]
 const mapState = ({zones: {activeId}}) => ({activeId});
 const mapDispatch = { patchZoneSSL }
