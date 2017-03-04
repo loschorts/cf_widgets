@@ -7,8 +7,8 @@ import OpportunisticEncryptionCard from './opportunistic_encryption';
 class Crypto extends React.Component {
 	render(){
 		const {zones, zoneSettings, activeId} = this.props;
-		const current = zoneSettings.byZoneId[activeId]
-		if (!current) return <div/>
+		const current = zoneSettings.byZoneId[activeId];
+		if (!current) return <div>loading...</div>
 		return (
 			<div id="crypto">
 				<SSLCard setting={current.ssl}/>

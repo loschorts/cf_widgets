@@ -4,21 +4,15 @@ import {Link} from 'react-router';
 import Card from './card'
 import Switch from './switch'
 
-import {patchZoneSetting} from '../actions/zone_settings';
-import { connect } from 'react-redux';
-
 const swap = setting => {
 	setting.value = setting.value === "on" ? "off" : "on";
 	return setting;
 }
 
-const OpportunisticEncryptionCard = ({ setting, zoneId, patchZoneSetting }) => {
+const OpportunisticEncryptionCard = ({ setting }) => {
 	const tool = (
 		<div id="ssl-select-tool">
-			<Switch
-				value={setting.value}
-				onChange={patchZoneSetting.bind(null, zoneId, setting.id, swap(setting)) }
-			/>
+			<Switch setting={setting}/>
 		</div>
 	);
 
@@ -33,11 +27,4 @@ const OpportunisticEncryptionCard = ({ setting, zoneId, patchZoneSetting }) => {
 	);
 }
 
-const mapState = ({zones: {activeId}}) => ({
-	zoneId: activeId
-})
-
-
-const mapDispatch = { patchZoneSetting }
-
-export default connect(mapState, mapDispatch)(OpportunisticEncryptionCard);
+export default OpportunisticEncryptionCard;

@@ -5,14 +5,7 @@ import ZoneSettingSelect from './zone_setting_select';
 import {Link} from 'react-router';
 import Card from './card'
 
-const SSLCard = ({ setting }) => {
-
-	const options = [
-		{value: "off", label: "Off"},
-		{value: "flexible", label: "Flexible"},
-		{value: "full", label: "Full"},
-		{value: "strict", label: "Full (strict)"},
-	]
+const SelectCard = ({ setting, title, body, options }) => {
 
 	const tool = (
 		<div id="ssl-select-tool">
@@ -26,8 +19,8 @@ const SSLCard = ({ setting }) => {
 
 	return (
 		<Card
-			title="SSL"
-			body="Encrypt communication to and from your website using SSL."
+			title={title}
+			body={body}
 			showTimestamp={true}
 			modified={setting.modified_on}
 			tool={tool}
@@ -35,4 +28,4 @@ const SSLCard = ({ setting }) => {
 	);
 }
 
-export default SSLCard;
+export default SelectCard;
