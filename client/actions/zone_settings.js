@@ -16,24 +16,18 @@ export const receiveZoneSettings = (id, settings) => ({
 	settings
 })
 
-export const setZoneSetting = (id, settingId, settings) => ({
+export const setZoneSetting = (id, settingId, setting) => ({
 	type: C.SET_ZONE_SETTING,
 	id,
 	settingId,
-	settings
+	setting
 })
 
-export const setZoneSSL = (id, settings) => ({
-	type: C.SET_ZONE_SSL,
-	id, 
-	settings
-})
+export const patchZoneSetting = (id, settingId, setting) => dispatch => {
+	dispatch(setZoneSetting(id, settingId, setting))
 
-export const patchZoneSSL = (id, value) => dispatch => {
-	dispatch(setZoneSetting(id, 'ssl', { value }))
-
-	API.patchZoneSSL(id, value).then(
-		r => dispatch(setZoneSetting(id, 'ssl', r.result)),
+	API.patchZoneSetting(id, settingId, setting).then(
+		r => dispatch(setZoneSetting(id, settingId, r.result)),
 		e => {
 			dispatch(ActionCreators.undo())
 			dispatch(receiveNetworkError(e))

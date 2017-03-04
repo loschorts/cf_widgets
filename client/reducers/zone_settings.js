@@ -15,7 +15,7 @@ const zoneSettings = (state = { byZoneId: {} }, action) => {
 		}
 
 		case C.SET_ZONE_SETTING: 
-			Object.assign(newState.byZoneId[action.id][action.settingId], action.settings)
+			Object.assign(newState.byZoneId[action.id][action.settingId], action.setting)
 			return newState;
 
 		default:
