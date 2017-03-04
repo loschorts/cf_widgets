@@ -4,14 +4,21 @@ import {Link} from 'react-router';
 import Card from './card'
 import Switch from './switch'
 
-const OriginPullsCard = ({ setting }) => {
+import {patchZoneSetting} from '../actions/zone_settings';
+import { connect } from 'react-redux';
+
+const swap = setting => {
+	setting.value = setting.value === "on" ? "off" : "on";
+	return setting;
+}
+
+const OriginPullsCard = ({ setting, zoneId, patchZoneSetting }) => {
 	const tool = (
 		<div id="ssl-select-tool">
 			<Switch
 				value={setting.value}
-				onChange={()=>{}}
+				onChange={patchZoneSetting.bind(null, zoneId, 'tls_client_auth', swap(setting)) }
 			/>
-			<span className="label success">ACTIVE CERTIFICATE</span>
 		</div>
 	);
 
@@ -25,4 +32,11 @@ const OriginPullsCard = ({ setting }) => {
 	);
 }
 
-export default OriginPullsCard;
+const mapState = ({zones: {activeId}}) => ({
+	zoneId: activeId
+})
+
+
+const mapDispatch = { patchZoneSetting }
+
+export default connect(mapState, mapDispatch)(OriginPullsCard);

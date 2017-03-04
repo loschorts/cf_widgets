@@ -13,7 +13,6 @@ export const fetchZoneSettings = id => {
 }
 
 export const patchZoneSetting = (id, settingId, setting) => {
-	debugger
 	return $.ajax({
 		contentType: "application/json",
 		url: `api/zones/${id}/settings/${settingId}`,
