@@ -11,6 +11,9 @@ const errors = (state = {}, action) => {
 				message: action.message
 			}
 			return newState;
+		case C.FLUSH_NETWORK_ERROR:
+			newState.networkError = undefined;
+			return newState;
 		default:
 			return state;
 	}

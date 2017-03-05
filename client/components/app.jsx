@@ -5,6 +5,7 @@ import {fetchUserDetails} from '../actions/details';
 import {fetchZones} from '../actions/zones';
 import NavBar from './nav_bar';
 import Header from './header';
+import Errors from './errors';
 
 class App extends React.Component {
 	header(){
@@ -41,6 +42,7 @@ class App extends React.Component {
 					</section>
 					{children}
 				</main>
+				<Errors/>
 			</div>
 		);
 	}

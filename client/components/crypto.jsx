@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+
 import SSLCard from './ssl_card';
 import OriginPullsCard from './origin_pulls_card';
 import OpportunisticEncryptionCard from './opportunistic_encryption';
@@ -8,7 +9,7 @@ class Crypto extends React.Component {
 	render(){
 		const {zones, zoneSettings, activeId} = this.props;
 		const current = zoneSettings.byZoneId[activeId];
-		if (!current) return <div>loading...</div>
+		if (!current) return <div/>
 		return (
 			<div id="crypto">
 				<SSLCard setting={current.ssl}/>
