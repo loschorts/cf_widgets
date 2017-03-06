@@ -16,5 +16,6 @@ export xAuthKey=$key
 
 echo "2) npm install && webpack"
 npm install && webpack
+
 echo "3) start node server.js "
 node server.js
