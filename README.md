@@ -16,7 +16,7 @@ Dependencies: `node`
 
 ## Features
 
-- **Node Express server** receives API requests from the client and issues Cloudflare API requests to avoid same-origin policies encountered when issuing Cloudflare requests directly from client.
+- [**Node Express server**](server.js) receives API requests from the client and issues Cloudflare API requests to avoid same-origin policies encountered when issuing Cloudflare requests directly from client.
 
 - **Modular Components** allow for rapid construction of new dashboard tools:
 	- [`card.jsx`](client/components/card.jsx): Accepts display information and a `tool` component as props and creates a new dashboard card with optional timestamp showing time since last modification.
