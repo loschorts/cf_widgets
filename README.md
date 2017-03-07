@@ -65,3 +65,4 @@ I opted for a React/Redux frontend. React allows for rapid DOM manipulation, and
 	- [ ] Selectable zones.
 	- [ ] Update-able user information.
 	- [ ] Add animations to Error notification bar.
+- [ ] Fix font-not-loading bug.
