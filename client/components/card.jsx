@@ -1,5 +1,6 @@
 import React from 'react';
 import {timeDiff} from '../util/date';
+import {notImplemented} from '../util/not_implemented'
 
 import {Link} from 'react-router';
 
@@ -21,8 +22,8 @@ const Card = ({ title, body, modifiedOn, tool, showTimestamp }) => {
 				{tool}
 			</section>
 			<section className="card-section">
-				<Link>API ▶</Link>
-				<Link>Help ▶</Link>
+				<Link onClick={notImplemented}>API ▶</Link>
+				<Link onClick={notImplemented}>Help ▶</Link>
 			</section>
 		</div>
 	);	

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-
+import notImplemented from '../util/not_implemented'
 const Header = ({email, zone}) => {
 	let zoneContent;
 
@@ -20,17 +20,13 @@ const Header = ({email, zone}) => {
 				</li>
 				{zoneContent ? zoneContent: null}
 				<ul className="header-links">
-					<li><Link onClick={showStub}> + Add Site</Link></li>
-					<li><Link onClick={showStub}> Support</Link></li>
+					<li><Link onClick={notImplemented}> + Add Site</Link></li>
+					<li><Link onClick={notImplemented}> Support</Link></li>
 					<li><Link to={"/details"}>{email}</Link></li>
 				</ul>
 			</ul>
 		</header>
 	);
-}
-
-const showStub = () => {
-	alert("**not yet implemented**")
 }
 
 export default Header;

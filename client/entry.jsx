@@ -7,7 +7,7 @@ import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import Details from './components/details';
 import Crypto from './components/crypto';
 
-const Empty = ()=><div>**Not Yet Implemented**</div>
+const Empty = ()=><div>**Not Implemented**</div>
 
 const Root = ({ store }) => (
   <Provider store={store}>
