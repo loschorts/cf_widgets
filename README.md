@@ -19,8 +19,14 @@ server are done via `https`.
 
 ## Features
 
-- Node.js server receives API requests from the client and issues Cloudflare API
+- Node server receives API requests from the client and issues Cloudflare API
 requests  same-origin policies.
 
-- 
+- Modular Components allow for rapid construction of new dashboard tools:
+	- [`card.jsx`](clients/components/card.jsx): Accepts display information and a `tool` component as props and creates a new dashboard card with optional timestamp.
+	- [`select.jsx`](clients/components/select.jsx): 
+	- [`switch.jsx`](clients/components/switch.jsx)
+
+- Reusable `Card` component allows modular construction of new dashboard tools.
+- Reusable `Select` component 
 
