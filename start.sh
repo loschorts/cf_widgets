@@ -15,7 +15,8 @@ export xAuthEmail=$email
 export xAuthKey=$key
 
 echo "2) npm install && webpack"
-npm install && webpack
+
+npm install && node_modules/.bin/webpack
 
 echo "3) start node server.js "
 node server.js
