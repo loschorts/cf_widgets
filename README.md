@@ -26,6 +26,6 @@ requests to avoid same-origin policies encountered when issuing directly from cl
 
 - **Rollback-able tools:** Setting values (`off`, `on`, `flexible`, etc) are stored in a **Redux store with Undo**, allowing tools to optimistically update when user input is received but roll back if their API requests fail.
 
-- [`nav_bar.jsx`](client/components/nav_bar.jsx) w/ [`button.jsx`](client/components/button.jsx): Navigate between panels via `react-router` `Links`.
+- [`nav_bar.jsx`](client/components/nav_bar.jsx) + [`button.jsx`](client/components/button.jsx): Navigate between panels via `react-router` `Links`.
 - [`errors.jsx`](client/components/errors.jsx): Temporary screen-bottom pop-up triggered whenever network requests fail; displays Cloudflare Error code and message if provided, and if not, shows HTTP response code and message.
 
