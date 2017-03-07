@@ -23,9 +23,9 @@ server are done via `https`.
 requests  same-origin policies.
 
 - Modular Components allow for rapid construction of new dashboard tools:
-	- [`card.jsx`](clients/components/card.jsx): Accepts display information and a `tool` component as props and creates a new dashboard card with optional timestamp.
-	- [`zone_setting_select.jsx`](clients/components/select.jsx): accepts `setting` and `option` props and dispatches API PATCH requests when an option is selected.
-	- [`switch.jsx`](clients/components/switch.jsx): accepts a `setting` and dispatches an API PATCH request to toggle the setting `on` and `off` when clicked.
+	- [`card.jsx`](client/components/card.jsx): Accepts display information and a `tool` component as props and creates a new dashboard card with optional timestamp.
+	- [`zone_setting_select.jsx`](client/components/select.jsx): accepts `setting` and `option` props and dispatches API PATCH requests when an option is selected.
+	- [`switch.jsx`](client/components/switch.jsx): accepts a `setting` and dispatches an API PATCH request to toggle the setting `on` and `off` when clicked.
 
 - Reusable `Card` component allows modular construction of new dashboard tools.
 - Reusable `Select` component 
