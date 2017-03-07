@@ -1,6 +1,6 @@
 import React from 'react';
 import {timeDiff} from '../util/date';
-import {notImplemented} from '../util/not_implemented'
+import notImplemented from '../util/not_implemented'
 
 import {Link} from 'react-router';
 

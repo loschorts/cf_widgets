@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import notImplemented from '../util/not_implemented'
+
 const Header = ({email, zone}) => {
 	let zoneContent;
 
