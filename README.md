@@ -24,7 +24,7 @@ requests to avoid same-origin policies encountered when issuing directly from cl
 	- [`zone_setting_select.jsx`](client/components/select.jsx): accepts `setting` and `option` props and dispatches API PATCH requests when an option is selected.
 	- [`switch.jsx`](client/components/switch.jsx): accepts a `setting` and dispatches an API PATCH request to toggle the setting `on` and `off` when clicked.
 
-- Rollback-able tools: Setting values (`off`, `on`, `flexible`, etc) are stored in a **Redux store with Undo**, allowing tools to optimistically update when user input is received but roll back if their API requests fail.
+- **Rollback-able tools:** Setting values (`off`, `on`, `flexible`, etc) are stored in a **Redux store with Undo**, allowing tools to optimistically update when user input is received but roll back if their API requests fail.
 
 - [`nav_bar.jsx`](client/components/nav_bar.jsx): Navigate between panels via `react-router` `Links`.
 - [`errors.jsx`](client/components/errors.jsx): Temporary screen-bottom pop-up triggered whenever network requests fail; displays Cloudflare Error code and message if provided, and if not, shows HTTP response code and message.
