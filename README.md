@@ -53,3 +53,16 @@ I opted for a React/Redux frontend. React allows for rapid DOM manipulation, and
 
 	0. Adding TLS to ensure security would also slow down development time (although this could be done relatively faster via cloudflare)
 
+## Improvements
+
+-[ ] Undo-ing failed setting updates is brittle because of potential race conditions; a more robust approach would skip the Undo library in favor of a custom approach that targets the failed setting directly instead of relying on it to be the last dispatched action to the `zone_settings` reducer.
+
+-[ ] Implementing a client-side login UX.
+
+-[ ] Refactor style to modularize and DRY via SCSS.
+
+- [ ] Add additional UX features of the original:
+	- [ ] `API` and `Help` dropdowns on relevant cards.
+	- [ ] Selectable zones.
+	- [ ] Update-able user information.
+	- [ ] Add animations to Error notification bar.
