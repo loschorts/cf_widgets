@@ -49,7 +49,7 @@ I opted for a React/Redux frontend. React allows for rapid DOM manipulation, and
 
 - **Credential storage**: I opted store user cloudflare credentials server-side via ENV vars. This was done because 
 
-	0. Session storage on the front-end would add development overhead, while not promoting the objective of demonstrating UX development skills
+	0. Session storage on the front-end would add development overhead, while not promoting the objective of learning the Cloudflare API
 
 	0. Adding TLS to ensure security would also slow down development time (although this could be done relatively faster via cloudflare)
 
