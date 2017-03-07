@@ -7,16 +7,17 @@ import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import Details from './components/details';
 import Crypto from './components/crypto';
 
-const empty = ()=><div/>
+const Empty = ()=><div>**Not Yet Implemented**</div>
+
 const Root = ({ store }) => (
   <Provider store={store}>
 		<Router history={hashHistory}>
 			<Route path="/" component={App}>
 				<Route path="details" component={Details}/>
 				<Route path="crypto" component={Crypto}/>
-				<Route path="firewall" component={empty}/>
-				<Route path="speed" component={empty}/>
-				<Route path="caching" component={empty}/>
+				<Route path="firewall" component={Empty}/>
+				<Route path="speed" component={Empty}/>
+				<Route path="caching" component={Empty}/>
 			</Route>
 		</Router>
   </Provider>

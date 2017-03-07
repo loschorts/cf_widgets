@@ -20,13 +20,17 @@ const Header = ({email, zone}) => {
 				</li>
 				{zoneContent ? zoneContent: null}
 				<ul className="header-links">
-					<li><Link> + Add Site</Link></li>
-					<li><Link> Support</Link></li>
+					<li><Link onClick={showStub}> + Add Site</Link></li>
+					<li><Link onClick={showStub}> Support</Link></li>
 					<li><Link to={"/details"}>{email}</Link></li>
 				</ul>
 			</ul>
 		</header>
 	);
+}
+
+const showStub = () => {
+	alert("**not yet implemented**")
 }
 
 export default Header;

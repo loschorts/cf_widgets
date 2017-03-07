@@ -6,6 +6,11 @@ body {
 	box-sizing: border-box;
 }
 
+strong {
+	color: black;
+	font-weight: bolder;
+}
+
 a {
 	text-decoration: none;
 }
@@ -240,4 +245,16 @@ main > #title {
 .hidden {
 	display: none;
 
+}
+
+/*details*/
+
+#details {
+	flex-direction: column;
+	padding: 20px;
+}
+
+#user-info li {
+	color: rgb(124,124,124);
+	line-height: 1.3;
 }

@@ -6,9 +6,9 @@ class Details extends React.Component {
 	render(){
 		const {details} = this.props;
 		return (
-			<div id="user-info">
-				<p>Account Settings</p>
-				<ul id="details">
+			<div id="details" className="card">
+				<h3 className="card-title">Account Settings</h3>
+				<ul id="user-info">
 					{
 						Object.keys(details).map((k, i) => {
 							return <li key={`ui-${i}`}><strong>{k}</strong>: {details[k] || "nil"}</li>

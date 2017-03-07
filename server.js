@@ -62,6 +62,8 @@ app.get('/api/*', (req, res) => {
 
 // API PATCH Request Route
 app.patch("/api/*", (req,res) =>{
+	const path = "https://api.cloudflare.com/v4/" + req.path.slice(5);
+	console.log("Requesting PATCH " + path + " from cloudflare");
 	
 	const options = {
 	  url: path,
