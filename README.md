@@ -16,19 +16,18 @@ Dependencies: `node`
 
 ## Features
 
-- **Node server** receives API requests from the client and issues Cloudflare API
-requests to avoid same-origin policies encountered when issuing directly from client.
+- **Node Express server** receives API requests from the client and issues Cloudflare API requests to avoid same-origin policies encountered when issuing Cloudflare requests directly from client.
 
 - **Modular Components** allow for rapid construction of new dashboard tools:
 	- [`card.jsx`](client/components/card.jsx): Accepts display information and a `tool` component as props and creates a new dashboard card with optional timestamp showing time since last modification.
 	- [`zone_setting_select.jsx`](client/components/select.jsx): accepts `setting` and `option` props and dispatches API PATCH requests when an option is selected.
 	- [`switch.jsx`](client/components/switch.jsx): accepts a `setting` and dispatches an API PATCH request to toggle the setting `on` and `off` when clicked.
 
-- **Rollback-able tools:** Setting values (`off`, `on`, `flexible`, etc) are stored in a **Redux store with Undo**, allowing tools to optimistically update when user input is received but roll back if their API requests fail.
-
-- [`nav_bar.jsx`](client/components/nav_bar.jsx) + [`button.jsx`](client/components/button.jsx): Navigation panel implemented via `react-router` `Links`.
+- **Rollback-able tools:** Setting values (`off`, `on`, `flexible`, etc) are stored in a **Redux store with Undo**, allowing tools to optimistically update when user input is received but roll back if their API requests fail. See [`reducers/zone_settings.jsx`](client/reducers/zone_settings.js)
 
 - [`errors.jsx`](client/components/errors.jsx): Temporary screen-bottom pop-up triggered whenever network requests fail; displays Cloudflare Error code and message if provided, and if not, shows HTTP response code and message.
+
+- [`nav_bar.jsx`](client/components/nav_bar.jsx) + [`button.jsx`](client/components/button.jsx): Navigation panel implemented via `react-router` `Links`.
 
 ## Design Choices
 
