@@ -59,7 +59,7 @@ I opted for a React/Redux frontend. React allows for rapid DOM manipulation, and
 - [ ] Add tests for API calls both server and client side. 
 - [ ] Undoing failed setting updates is brittle because of potential race conditions; a more robust approach would skip the Undo library in favor of a custom approach that targets the failed setting directly instead of relying on it to be the last dispatched action to the `zone_settings` reducer.
 - [ ] Implementing a client-side login UX.
-- [ ] Refactor style to modularize and DRY via SCSS.
+- [ ] Refactor [`index.css`](index.css) to modularize and DRY via SCSS.
 - [ ] Add additional UX features of the original:
 	- [ ] `API` and `Help` dropdowns on relevant cards.
 	- [ ] Selectable zones.
